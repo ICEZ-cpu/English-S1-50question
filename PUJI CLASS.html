@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Tenses Mastery | Reference & 50-Question Interactive Quiz</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and smooth transitions */
+        html {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            animation: fadeIn 0.25s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center shadow-md shadow-brand-500/20">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold text-slate-900 leading-tight">English Tenses Mastery</h1>
+                    <p class="text-xs text-slate-500 hidden sm:block">Present • Past • Future • Continuous</p>
+                </div>
+            </div>
+
+            <!-- Live Score Pill -->
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <div class="bg-slate-100 px-3 py-1.5 rounded-full flex items-center space-x-2 border border-slate-200">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Score</span>
+                    <span id="headerScore" class="text-sm font-bold text-brand-600">0 / 50</span>
+                </div>
+                <button onclick="toggleReferenceDrawer()" id="toggleRefBtn" class="px-3.5 py-2 rounded-xl bg-brand-50 text-brand-700 hover:bg-brand-100 font-semibold text-xs sm:text-sm transition flex items-center space-x-2 border border-brand-200">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span id="toggleRefText">Hide Study Guide</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
+
+        <!-- SECTION 1: Collapsible & Tabbed Grammar Reference Material -->
+        <section id="referenceSection" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition-all duration-300">
+            <div class="p-5 sm:p-6 bg-gradient-to-r from-brand-900 to-brand-700 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <span class="inline-block px-2.5 py-0.5 rounded-full bg-white/15 text-xs font-semibold tracking-wide uppercase mb-1">Grammar Study Guide</span>
+                    <h2 class="text-xl sm:text-2xl font-bold">Core English Tenses Reference</h2>
+                    <p class="text-brand-100 text-sm mt-1">Review formulas, rules, time markers, and examples before or during your quiz.</p>
+                </div>
+                <!-- Tense Category Tabs -->
+                <div class="flex flex-wrap gap-2 bg-brand-950/40 p-1.5 rounded-xl border border-white/10">
+                    <button onclick="switchTab('present')" id="tab-present" class="ref-tab px-4 py-2 rounded-lg text-sm font-semibold transition bg-white text-brand-900 shadow-sm">
+                        Present Tenses
+                    </button>
+                    <button onclick="switchTab('past')" id="tab-past" class="ref-tab px-4 py-2 rounded-lg text-sm font-semibold transition text-brand-100 hover:text-white hover:bg-white/10">
+                        Past Tenses
+                    </button>
+                    <button onclick="switchTab('future')" id="tab-future" class="ref-tab px-4 py-2 rounded-lg text-sm font-semibold transition text-brand-100 hover:text-white hover:bg-white/10">
+                        Future Tenses
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content Container -->
+            <div class="p-5 sm:p-6">
+                <!-- PRESENT TENSES TAB -->
+                <div id="content-present" class="ref-content grid grid-cols-1 lg:grid-cols-2 gap-6 fade-in">
+                    <!-- Present Simple -->
+                    <div class="rounded-xl border border-slate-200 p-5 bg-slate-50/60 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                                    Present Simple
+                                </h3>
+                                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800">Habits & Facts</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200 mb-4 font-mono text-xs sm:text-sm text-slate-700 space-y-1">
+                                <div><span class="text-emerald-600 font-bold">(+)</span> Subject + V1 (+ s/es for He/She/It)</div>
+                                <div><span class="text-rose-600 font-bold">(-)</span> Subject + do/does + not + V1</div>
+                                <div><span class="text-brand-600 font-bold">(?)</span> Do/Does + Subject + V1?</div>
+                            </div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">When to Use:</h4>
+                            <ul class="text-sm text-slate-600 space-y-1.5 list-disc list-inside mb-4">
+                                <li>Daily routines, habits, and repeated actions.</li>
+                                <li>Universal truths, scientific facts, and general states.</li>
+                                <li>Fixed schedules and timetables (trains, flights, classes).</li>
+                                <li>Stative verbs (know, believe, love, understand, want).</li>
+                            </ul>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 space-y-2">
+                            <div class="text-xs text-slate-500"><strong class="text-slate-700">Time Markers:</strong> always, usually, often, sometimes, rarely, never, every day/week, on Mondays.</div>
+                            <div class="bg-emerald-50/80 border border-emerald-200/80 rounded-lg p-2.5 text-sm text-emerald-950">
+                                <strong>Example:</strong> "Water <u>boils</u> at 100°C." / "She <u>drinks</u> coffee every morning."
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Present Continuous -->
+                    <div class="rounded-xl border border-slate-200 p-5 bg-slate-50/60 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+                                    Present Continuous
+                                </h3>
+                                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-teal-100 text-teal-800">Actions in Progress</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200 mb-4 font-mono text-xs sm:text-sm text-slate-700 space-y-1">
+                                <div><span class="text-emerald-600 font-bold">(+)</span> Subject + am/is/are + V-ing</div>
+                                <div><span class="text-rose-600 font-bold">(-)</span> Subject + am/is/are + not + V-ing</div>
+                                <div><span class="text-brand-600 font-bold">(?)</span> Am/Is/Are + Subject + V-ing?</div>
+                            </div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">When to Use:</h4>
+                            <ul class="text-sm text-slate-600 space-y-1.5 list-disc list-inside mb-4">
+                                <li>Actions happening right at the moment of speaking.</li>
+                                <li>Temporary situations happening around now (this week/month).</li>
+                                <li>Definite personal plans or arrangements in the near future.</li>
+                                <li>Changing or developing situations.</li>
+                            </ul>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 space-y-2">
+                            <div class="text-xs text-slate-500"><strong class="text-slate-700">Time Markers:</strong> now, right now, at the moment, currently, Look!, Listen!, today, this week.</div>
+                            <div class="bg-teal-50/80 border border-teal-200/80 rounded-lg p-2.5 text-sm text-teal-950">
+                                <strong>Example:</strong> "Listen! Somebody <u>is playing</u> the piano." / "They <u>are buying</u> a house next month."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAST TENSES TAB -->
+                <div id="content-past" class="ref-content hidden grid-cols-1 lg:grid-cols-2 gap-6 fade-in">
+                    <!-- Past Simple -->
+                    <div class="rounded-xl border border-slate-200 p-5 bg-slate-50/60 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                                    Past Simple
+                                </h3>
+                                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-amber-100 text-amber-800">Completed Past</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200 mb-4 font-mono text-xs sm:text-sm text-slate-700 space-y-1">
+                                <div><span class="text-emerald-600 font-bold">(+)</span> Subject + V2 (regular -ed / irregular)</div>
+                                <div><span class="text-rose-600 font-bold">(-)</span> Subject + did + not + V1</div>
+                                <div><span class="text-brand-600 font-bold">(?)</span> Did + Subject + V1?</div>
+                            </div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">When to Use:</h4>
+                            <ul class="text-sm text-slate-600 space-y-1.5 list-disc list-inside mb-4">
+                                <li>Completed actions at a specific finished time in the past.</li>
+                                <li>A series of consecutive completed actions in a story.</li>
+                                <li>Past habits or states that are no longer true.</li>
+                                <li>Short interrupting actions (often paired with <em>when</em>).</li>
+                            </ul>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 space-y-2">
+                            <div class="text-xs text-slate-500"><strong class="text-slate-700">Time Markers:</strong> yesterday, last night/week/year, ... ago, in 1992, back in the 1990s, when.</div>
+                            <div class="bg-amber-50/80 border border-amber-200/80 rounded-lg p-2.5 text-sm text-amber-950">
+                                <strong>Example:</strong> "She <u>lost</u> her keys yesterday." / "Columbus <u>discovered</u> America in 1492."
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past Continuous -->
+                    <div class="rounded-xl border border-slate-200 p-5 bg-slate-50/60 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+                                    Past Continuous
+                                </h3>
+                                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-orange-100 text-orange-800">Ongoing Past Action</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200 mb-4 font-mono text-xs sm:text-sm text-slate-700 space-y-1">
+                                <div><span class="text-emerald-600 font-bold">(+)</span> Subject + was/were + V-ing</div>
+                                <div><span class="text-rose-600 font-bold">(-)</span> Subject + was/were + not + V-ing</div>
+                                <div><span class="text-brand-600 font-bold">(?)</span> Was/Were + Subject + V-ing?</div>
+                            </div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">When to Use:</h4>
+                            <ul class="text-sm text-slate-600 space-y-1.5 list-disc list-inside mb-4">
+                                <li>An action in progress at a specific exact moment in the past.</li>
+                                <li>An ongoing background action interrupted by a Past Simple event.</li>
+                                <li>Two parallel actions happening at the exact same time in the past.</li>
+                            </ul>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 space-y-2">
+                            <div class="text-xs text-slate-500"><strong class="text-slate-700">Time Markers:</strong> while, as, when, at 10 PM last night, at midnight, all day yesterday.</div>
+                            <div class="bg-orange-50/80 border border-orange-200/80 rounded-lg p-2.5 text-sm text-orange-950">
+                                <strong>Example:</strong> "When you called, I <u>was cooking</u> dinner." / "While she read, he <u>was sleeping</u>."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FUTURE TENSES TAB -->
+                <div id="content-future" class="ref-content hidden grid-cols-1 lg:grid-cols-2 gap-6 fade-in">
+                    <!-- Future Simple (Will & Going To) -->
+                    <div class="rounded-xl border border-slate-200 p-5 bg-slate-50/60 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+                                    Future Simple (Will / Going to)
+                                </h3>
+                                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-100 text-indigo-800">Decisions & Plans</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200 mb-4 font-mono text-xs sm:text-sm text-slate-700 space-y-1">
+                                <div><span class="text-indigo-600 font-bold">Will:</span> Subject + will (won't) + V1</div>
+                                <div><span class="text-purple-600 font-bold">Going to:</span> Subject + am/is/are + going to + V1</div>
+                            </div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">When to Use:</h4>
+                            <ul class="text-sm text-slate-600 space-y-1.5 list-disc list-inside mb-4">
+                                <li><strong>Will:</strong> Spontaneous decisions made at the moment of speaking, promises, offers, and general predictions (<em>I think...</em>).</li>
+                                <li><strong>Be going to:</strong> Prior plans/intentions already decided, and predictions based on visible present evidence (e.g., dark clouds).</li>
+                            </ul>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 space-y-2">
+                            <div class="text-xs text-slate-500"><strong class="text-slate-700">Time Markers:</strong> tomorrow, next week/year, in 2030, soon, I promise, I think, Look at...!</div>
+                            <div class="bg-indigo-50/80 border border-indigo-200/80 rounded-lg p-2.5 text-sm text-indigo-950">
+                                <strong>Example:</strong> "Look at those clouds! It <u>is going to</u> rain." / "I promise I <u>will help</u> you."
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Future Continuous -->
+                    <div class="rounded-xl border border-slate-200 p-5 bg-slate-50/60 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-violet-500"></span>
+                                    Future Continuous
+                                </h3>
+                                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-violet-100 text-violet-800">Ongoing Future</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200 mb-4 font-mono text-xs sm:text-sm text-slate-700 space-y-1">
+                                <div><span class="text-emerald-600 font-bold">(+)</span> Subject + will + be + V-ing</div>
+                                <div><span class="text-rose-600 font-bold">(-)</span> Subject + will + not (won't) + be + V-ing</div>
+                                <div><span class="text-brand-600 font-bold">(?)</span> Will + Subject + be + V-ing?</div>
+                            </div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">When to Use:</h4>
+                            <ul class="text-sm text-slate-600 space-y-1.5 list-disc list-inside mb-4">
+                                <li>An action that will be in progress at a specific point in time in the future.</li>
+                                <li>Actions that are already scheduled or expected to happen as part of a routine in the future.</li>
+                            </ul>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 space-y-2">
+                            <div class="text-xs text-slate-500"><strong class="text-slate-700">Time Markers:</strong> at 8 PM tomorrow, this time next week/year, between 2 and 4 PM tomorrow.</div>
+                            <div class="bg-violet-50/80 border border-violet-200/80 rounded-lg p-2.5 text-sm text-violet-950">
+                                <strong>Example:</strong> "This time next week, I <u>will be lying</u> on a sunny beach in Hawaii."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Interactive 50-Question Quiz Workspace -->
+        <section id="quizWorkspace" class="space-y-6">
+            <!-- Quiz Controls & Progress Card -->
+            <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900">50-Question Interactive Mastery Quiz</h2>
+                        <p class="text-sm text-slate-500">Select an answer to see instant feedback, grammar explanations, and update your score.</p>
+                    </div>
+
+                    <!-- Mode & Feature Controls -->
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <!-- Toggle Hints -->
+                        <button onclick="toggleHints()" id="hintToggleBtn" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 transition flex items-center gap-2">
+                            <i class="fa-regular fa-lightbulb"></i>
+                            <span id="hintToggleLabel">Show Hints: OFF</span>
+                        </button>
+
+                        <!-- View Mode Switcher -->
+                        <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
+                            <button onclick="setViewMode('single')" id="modeSingleBtn" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-white text-slate-900 shadow-sm transition">
+                                One-by-One
+                            </button>
+                            <button onclick="setViewMode('all')" id="modeAllBtn" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition">
+                                View All (50)
+                            </button>
+                        </div>
+
+                        <!-- Submit / Finish Button -->
+                        <button onclick="showResultsModal()" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition flex items-center gap-2">
+                            <i class="fa-solid fa-flag-checkered"></i>
+                            <span>Finish & Summary</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress Metrics & Bar -->
+                <div class="pt-4 space-y-2">
+                    <div class="flex items-center justify-between text-xs sm:text-sm font-semibold">
+                        <span class="text-slate-600">
+                            Answered: <span id="answeredCount" class="text-slate-900 font-bold">0</span> / 50
+                        </span>
+                        <span class="text-emerald-600">
+                            Correct: <span id="correctCount" class="font-bold">0</span>
+                        </span>
+                        <span class="text-rose-600">
+                            Incorrect: <span id="incorrectCount" class="font-bold">0</span>
+                        </span>
+                        <span class="text-brand-600">
+                            Accuracy: <span id="accuracyPercent" class="font-bold">0%</span>
+                        </span>
+                    </div>
+                    <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden p-0.5 border border-slate-200/60">
+                        <div id="progressBar" class="h-full bg-gradient-to-r from-brand-500 to-emerald-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Quick Question Navigator Dots (Visible in Single Mode) -->
+                <div id="questionNavigator" class="pt-4 mt-4 border-t border-slate-100">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Question Jump Map</span>
+                        <div class="flex items-center gap-3 text-xs text-slate-500">
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 inline-block"></span> Correct</span>
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-rose-500 inline-block"></span> Wrong</span>
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-slate-200 inline-block"></span> Unanswered</span>
+                        </div>
+                    </div>
+                    <div id="navGrid" class="grid grid-cols-10 sm:grid-cols-25 gap-1.5">
+                        <!-- Generated dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Cards Container -->
+            <div id="questionsContainer" class="space-y-6">
+                <!-- Rendered dynamically via JS -->
+            </div>
+
+            <!-- Pagination Footer (Only in One-by-One Mode) -->
+            <div id="paginationFooter" class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                <button onclick="prevQuestion()" id="prevBtn" class="px-4 py-2.5 rounded-xl font-semibold text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Previous</span>
+                </button>
+
+                <span id="pageIndicator" class="text-sm font-bold text-slate-700">Question 1 of 50</span>
+
+                <button onclick="nextQuestion()" id="nextBtn" class="px-5 py-2.5 rounded-xl font-semibold text-sm bg-brand-600 text-white hover:bg-brand-700 transition flex items-center gap-2 shadow-sm">
+                    <span id="nextBtnText">Next Question</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Final Results & Summary Screen (Hidden until triggered or completed) -->
+        <section id="resultsSection" class="hidden bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden fade-in">
+            <div class="bg-gradient-to-br from-slate-900 via-brand-900 to-indigo-900 text-white p-6 sm:p-10 text-center relative overflow-hidden">
+                <div class="relative z-10 max-w-2xl mx-auto space-y-4">
+                    <div id="gradeBadge" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 border border-white/20 text-sm font-bold tracking-wide uppercase">
+                        <i class="fa-solid fa-award text-amber-300"></i>
+                        <span id="gradeTitle">Grade: A — Tense Master!</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Quiz Results Summary</h2>
+                    <p id="gradeMessage" class="text-brand-100 text-sm sm:text-base">
+                        Great job completing the 50-question English tenses challenge! Review your performance breakdown below.
+                    </p>
+
+                    <!-- Big Score Display -->
+                    <div class="py-4 flex justify-center items-baseline gap-3">
+                        <span id="finalScoreBig" class="text-5xl sm:text-6xl font-black text-white">0</span>
+                        <span class="text-2xl text-brand-200 font-semibold">/ 50</span>
+                        <span id="finalPercentPill" class="ml-2 px-3 py-1 rounded-xl bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-lg font-bold">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Breakdown Grid -->
+            <div class="p-6 sm:p-8 space-y-6">
+                <div>
+                    <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-pie text-brand-600"></i>
+                        Performance by Tense Category
+                    </h3>
+                    <div id="categoryBreakdownGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="pt-6 border-t border-slate-200 flex flex-wrap items-center justify-center gap-4">
+                    <button onclick="reviewMistakes()" id="reviewMistakesBtn" class="px-6 py-3 rounded-xl font-bold text-sm bg-amber-500 text-white hover:bg-amber-600 shadow-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Review Mistakes Only (<span id="mistakeCountLabel">0</span>)</span>
+                    </button>
+                    <button onclick="continueQuiz()" class="px-6 py-3 rounded-xl font-bold text-sm bg-slate-100 text-slate-800 hover:bg-slate-200 transition flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-rotate-left"></i>
+                        <span>Back to All Questions</span>
+                    </button>
+                    <button onclick="resetQuiz()" class="px-6 py-3 rounded-xl font-bold text-sm bg-brand-600 text-white hover:bg-brand-700 shadow-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Retake Entire Quiz</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+            <p>English Tenses Mastery — Interactive Grammar & Auto-Scoring Practice</p>
+            <p>Covers Present Simple, Present Continuous, Past Simple, Past Continuous, Future Simple & Future Continuous</p>
+        </div>
+    </footer>
+
+    <!-- Application Logic & 50-Question Dataset -->
+    <script>
+        // Complete 50-Question Dataset covering Present, Past, Future, and Continuous Tenses
+        const quizQuestions = [
+            {
+                id: 1,
+                category: "Present Simple",
+                question: "She usually _____ coffee in the morning, but today she is drinking tea.",
+                options: ["drink", "drinks", "is drinking", "drank"],
+                correct: 1,
+                hint: "Look at the frequency adverb 'usually' paired with a third-person singular subject ('She').",
+                explanation: "'Usually' indicates a regular habit, which requires the Present Simple. For 'She', we add '-s' to the base verb ('drinks')."
+            },
+            {
+                id: 2,
+                category: "Present Continuous",
+                question: "Right now, the children _____ hide and seek in the backyard.",
+                options: ["play", "played", "are playing", "will play"],
+                correct: 2,
+                hint: "The time marker 'Right now' tells you the action is happening at this exact moment.",
+                explanation: "'Right now' signals an action currently in progress, requiring the Present Continuous ('are playing' for plural 'children')."
+            },
+            {
+                id: 3,
+                category: "Past Simple",
+                question: "Yesterday afternoon, I _____ my grandmother for two hours.",
+                options: ["visit", "visited", "was visiting", "have visited"],
+                correct: 1,
+                hint: "Notice 'Yesterday afternoon'—a specific, finished time in the past.",
+                explanation: "Completed actions at a definite past time ('Yesterday afternoon') use the Past Simple ('visited')."
+            },
+            {
+                id: 4,
+                category: "Past Continuous",
+                question: "When you called me last night, I _____ dinner.",
+                options: ["cooked", "was cooking", "am cooking", "cook"],
+                correct: 1,
+                hint: "One longer action was already in progress when another shorter action ('called') interrupted it.",
+                explanation: "The Past Continuous ('was cooking') describes an ongoing background action interrupted by a Past Simple event ('called')."
+            },
+            {
+                id: 5,
+                category: "Future Simple",
+                question: "Look at those dark clouds! It _____ rain.",
+                options: ["will", "is going to", "rains", "was going to"],
+                correct: 1,
+                hint: "There is clear, visible evidence right now ('Look at those dark clouds!').",
+                explanation: "We use 'be going to' ('is going to') when making a future prediction based on present physical evidence."
+            },
+            {
+                id: 6,
+                category: "Future Simple",
+                question: "I promise I _____ you with your homework tomorrow.",
+                options: ["help", "am helping", "will help", "helped"],
+                correct: 2,
+                hint: "Promises and offers made at the moment of speaking take a specific future modal.",
+                explanation: "Promises, vows, and spontaneous offers use 'will + base verb' ('will help')."
+            },
+            {
+                id: 7,
+                category: "Present Simple",
+                question: "Water _____ at 100 degrees Celsius under normal atmospheric pressure.",
+                options: ["is boiling", "boiled", "boils", "will boil"],
+                correct: 2,
+                hint: "This sentence states an unchanging scientific fact.",
+                explanation: "Universal truths and scientific laws always use the Present Simple ('boils')."
+            },
+            {
+                id: 8,
+                category: "Future Continuous",
+                question: "At 8 PM tomorrow, we _____ dinner at the new Italian restaurant.",
+                options: ["will eat", "eat", "will be eating", "are eating"],
+                correct: 2,
+                hint: "Focus on a specific point in time in the future ('At 8 PM tomorrow') when the action will be mid-progress.",
+                explanation: "The Future Continuous ('will be eating') expresses an action that will be in progress at a specific future time."
+            },
+            {
+                id: 9,
+                category: "Past Continuous",
+                question: "While my mother was reading a book, my father _____ dinner.",
+                options: ["cooked", "was cooking", "cooks", "is cooking"],
+                correct: 1,
+                hint: "'While' introduces two simultaneous ongoing actions in the past.",
+                explanation: "Two parallel actions happening at the exact same time in the past both take the Past Continuous ('was cooking')."
+            },
+            {
+                id: 10,
+                category: "Present Simple",
+                question: "The train to Chicago _____ at 6:15 AM every weekday.",
+                options: ["is leaving", "left", "leaves", "will be leaving"],
+                correct: 2,
+                hint: "Public transportation timetables follow a fixed schedule.",
+                explanation: "Fixed timetables and schedules use the Present Simple ('leaves'), even when referring to scheduled departures."
+            },
+            {
+                id: 11,
+                category: "Present Continuous",
+                question: "Listen! Somebody _____ the piano in the next room.",
+                options: ["plays", "played", "is playing", "will play"],
+                correct: 2,
+                hint: "The imperative 'Listen!' draws attention to something happening right now.",
+                explanation: "Exclamations like 'Listen!' or 'Look!' indicate an action happening at the moment of speaking ('is playing')."
+            },
+            {
+                id: 12,
+                category: "Future Continuous",
+                question: "By this time next year, I _____ at university.",
+                options: ["study", "studied", "will be studying", "am studying"],
+                correct: 2,
+                hint: "'By this time next year' points to an ongoing state/activity at a future milestone.",
+                explanation: "The Future Continuous ('will be studying') describes an ongoing activity happening at a specific time in the future."
+            },
+            {
+                id: 13,
+                category: "Present Simple",
+                question: "I _____ what you mean, but I still disagree.",
+                options: ["am understanding", "understand", "understood", "will understand"],
+                correct: 1,
+                hint: "'Understand' is a stative (non-action) verb describing a mental state.",
+                explanation: "Stative verbs (like understand, know, believe) are not normally used in continuous tenses; use Present Simple ('understand')."
+            },
+            {
+                id: 14,
+                category: "Past Simple",
+                question: "Christopher Columbus _____ America in 1492.",
+                options: ["discovers", "was discovering", "discovered", "has discovered"],
+                correct: 2,
+                hint: "Historical events with a specific past year ('in 1492') take a simple past verb.",
+                explanation: "Completed historical events tied to a specific past date use the Past Simple ('discovered')."
+            },
+            {
+                id: 15,
+                category: "Present Continuous",
+                question: "What _____ you _____ tomorrow evening?",
+                options: ["do / do", "are / doing", "did / do", "were / doing"],
+                correct: 1,
+                hint: "Asking about someone's personal social arrangements for tomorrow evening.",
+                explanation: "We commonly use the Present Continuous ('are you doing') to ask about definite personal plans in the near future."
+            },
+            {
+                id: 16,
+                category: "Present Continuous",
+                question: "He usually wears a suit, but today he _____ jeans and a T-shirt.",
+                options: ["wears", "wore", "is wearing", "will wear"],
+                correct: 2,
+                hint: "'Today' contrasts a temporary exception against his usual habit.",
+                explanation: "Temporary actions or exceptions happening around the present moment use the Present Continuous ('is wearing')."
+            },
+            {
+                id: 17,
+                category: "Past Simple",
+                question: "Back in the 1990s, people _____ smartphones with internet access.",
+                options: ["don't have", "didn't have", "weren't having", "won't have"],
+                correct: 1,
+                hint: "Form the negative Past Simple using 'did not (didn't) + base verb'.",
+                explanation: "Negative sentences in the Past Simple require 'didn't' followed by the base form of the verb ('didn't have')."
+            },
+            {
+                id: 18,
+                category: "Future Continuous",
+                question: "Don't phone me between 2 and 4 PM tomorrow; I _____ my exams then.",
+                options: ["take", "took", "will be taking", "am taking"],
+                correct: 2,
+                hint: "Between 2 and 4 PM tomorrow represents a future window of ongoing activity.",
+                explanation: "The Future Continuous ('will be taking') shows that an action will be in progress during a specific future timeframe."
+            },
+            {
+                id: 19,
+                category: "Past Simple",
+                question: "She _____ her keys yesterday, so she had to borrow mine.",
+                options: ["loses", "is losing", "lost", "will lose"],
+                correct: 2,
+                hint: "'Yesterday' and 'had to' anchor the entire event in the completed past.",
+                explanation: "'Lost' is the irregular Past Simple form of 'lose', matching the time marker 'yesterday'."
+            },
+            {
+                id: 20,
+                category: "Present Continuous",
+                question: "Be quiet! The baby _____ in the bedroom.",
+                options: ["sleeps", "slept", "is sleeping", "will sleep"],
+                correct: 2,
+                hint: "Why do you need to be quiet right now?",
+                explanation: "The command 'Be quiet!' shows the baby is currently sleeping at this exact moment ('is sleeping')."
+            },
+            {
+                id: 21,
+                category: "Future Simple",
+                question: "In 2035, space tourism _____ a common industry.",
+                options: ["becomes", "became", "will become", "is becoming"],
+                correct: 2,
+                hint: "Making a general prediction about a distant future year ('In 2035').",
+                explanation: "General predictions and beliefs about the future use 'will + base verb' ('will become')."
+            },
+            {
+                id: 22,
+                category: "Present Simple",
+                question: "Every summer, my family _____ to the mountains for vacation.",
+                options: ["go", "goes", "is going", "went"],
+                correct: 1,
+                hint: "'Every summer' signals a recurring annual habit, and 'my family' is treated as a singular unit here.",
+                explanation: "Repeated seasonal habits use the Present Simple. 'My family' takes the third-person singular verb 'goes'."
+            },
+            {
+                id: 23,
+                category: "Present Simple",
+                question: "I _____ what you are saying; could you speak a little louder?",
+                options: ["am not hearing", "don't hear", "didn't hear", "won't hear"],
+                correct: 1,
+                hint: "Sensory verbs like 'hear' and 'see' generally avoid continuous forms.",
+                explanation: "'Hear' is a verb of involuntary perception/sense, so it uses the Present Simple ('don't hear') rather than continuous."
+            },
+            {
+                id: 24,
+                category: "Past Continuous",
+                question: "What _____ you _____ when the fire alarm went off?",
+                options: ["did / do", "were / doing", "are / doing", "do / do"],
+                correct: 1,
+                hint: "Asking about the ongoing activity interrupted when the alarm suddenly rang.",
+                explanation: "To ask what activity was in progress at the moment an interruption ('went off') occurred, use Past Continuous ('were you doing')."
+            },
+            {
+                id: 25,
+                category: "Future Simple",
+                question: "I think robots _____ most manual jobs in the future.",
+                options: ["perform", "performed", "will perform", "are performing"],
+                correct: 2,
+                hint: "Phrases like 'I think', 'I believe', and 'probably' commonly pair with 'will'.",
+                explanation: "Opinions and predictions introduced by 'I think' use the Future Simple ('will perform')."
+            },
+            {
+                id: 26,
+                category: "Present Continuous",
+                question: "She _____ a shower right now, so she can't answer the phone.",
+                options: ["takes", "took", "is taking", "will take"],
+                correct: 2,
+                hint: "She can't answer the phone because the action is happening at this very second.",
+                explanation: "'Right now' requires the Present Continuous ('is taking') to show an action in progress."
+            },
+            {
+                id: 27,
+                category: "Past Simple",
+                question: "We _____ a wonderful time in Paris last summer.",
+                options: ["have", "are having", "had", "will have"],
+                correct: 2,
+                hint: "'Last summer' is a finished period of time in the past.",
+                explanation: "Past events during a finished period ('last summer') require the Past Simple ('had')."
+            },
+            {
+                id: 28,
+                category: "Present Simple",
+                question: "Look at the flight board: the plane _____ at 4:30 PM.",
+                options: ["is departing", "departed", "departs", "will be departing"],
+                correct: 2,
+                hint: "Official airport schedules and timetables use a specific tense.",
+                explanation: "Official timetables and flight schedules use the Present Simple ('departs')."
+            },
+            {
+                id: 29,
+                category: "Future Continuous",
+                question: "This time next week, I _____ on a sunny beach in Hawaii.",
+                options: ["lie", "lay", "will be lying", "am lying"],
+                correct: 2,
+                hint: "'This time next week' projects you into the middle of an activity in the future.",
+                explanation: "The Future Continuous ('will be lying') describes an ongoing action at a specific future moment."
+            },
+            {
+                id: 30,
+                category: "Present Simple",
+                question: "He _____ his car every weekend.",
+                options: ["wash", "washes", "is washing", "washed"],
+                correct: 1,
+                hint: "Verbs ending in '-sh' add '-es' in the third-person singular Present Simple.",
+                explanation: "Routine actions ('every weekend') take Present Simple. With 'He', 'wash' becomes 'washes'."
+            },
+            {
+                id: 31,
+                category: "Past Simple",
+                question: "When I was a child, I _____ to the radio every evening.",
+                options: ["listen", "listened", "am listening", "will listen"],
+                correct: 1,
+                hint: "Describing a regular habit from your childhood that is now finished.",
+                explanation: "Past habits and routines ('When I was a child') are expressed with the Past Simple ('listened')."
+            },
+            {
+                id: 32,
+                category: "Present Continuous",
+                question: "Quiet please! I _____ to concentrate on my test.",
+                options: ["try", "tried", "am trying", "will try"],
+                correct: 2,
+                hint: "The speaker is actively attempting to focus right at this moment.",
+                explanation: "An action occurring right now at the time of speaking uses the Present Continuous ('am trying')."
+            },
+            {
+                id: 33,
+                category: "Future Simple",
+                question: "Scientists believe they _____ a cure for that disease within ten years.",
+                options: ["find", "found", "will find", "were finding"],
+                correct: 2,
+                hint: "'Scientists believe' introduces a future prediction.",
+                explanation: "Predictions about future achievements use the Future Simple ('will find')."
+            },
+            {
+                id: 34,
+                category: "Past Continuous",
+                question: "She _____ her homework when her friends arrived at the door.",
+                options: ["did", "was doing", "does", "is doing"],
+                correct: 1,
+                hint: "Her homework was in progress when her friends suddenly arrived.",
+                explanation: "The ongoing action ('was doing') takes Past Continuous, while the interrupting action ('arrived') takes Past Simple."
+            },
+            {
+                id: 35,
+                category: "Present Simple",
+                question: "The sun _____ in the east and sets in the west.",
+                options: ["is rising", "rose", "rises", "will rise"],
+                correct: 2,
+                hint: "A permanent natural law of astronomy.",
+                explanation: "Permanent facts of nature always use the Present Simple ('rises')."
+            },
+            {
+                id: 36,
+                category: "Past Continuous",
+                question: "What _____ you doing at 10 PM last night? I tried to call you.",
+                options: ["did", "are", "were", "was"],
+                correct: 2,
+                hint: "Match the auxiliary verb to the subject 'you' in the Past Continuous.",
+                explanation: "In the Past Continuous, the subject 'you' takes the plural past auxiliary 'were' ('What were you doing...')."
+            },
+            {
+                id: 37,
+                category: "Future Simple",
+                question: "I'm really thirsty. I think I _____ get a glass of cold water.",
+                options: ["am going to", "will", "got", "get"],
+                correct: 1,
+                hint: "This decision was made spontaneously just now because the speaker realized they are thirsty.",
+                explanation: "Instant, spontaneous decisions made at the moment of speaking use 'will' ('I think I will get...')."
+            },
+            {
+                id: 38,
+                category: "Present Continuous",
+                question: "Global temperatures _____ steadily due to climate change.",
+                options: ["rise", "rose", "are rising", "were rising"],
+                correct: 2,
+                hint: "Describing a gradual, ongoing change or trend happening in the modern era.",
+                explanation: "Changing, developing, or trending situations around the present use the Present Continuous ('are rising')."
+            },
+            {
+                id: 39,
+                category: "Present Continuous",
+                question: "They _____ into their new house next Monday; the movers are already booked.",
+                options: ["moved", "are moving", "move", "were moving"],
+                correct: 1,
+                hint: "The movers are already booked, meaning this is a confirmed near-future arrangement.",
+                explanation: "Definite future arrangements with fixed logistics use the Present Continuous ('are moving')."
+            },
+            {
+                id: 40,
+                category: "Past Simple",
+                question: "Alexander Graham Bell _____ the telephone in 1876.",
+                options: ["invents", "was inventing", "invented", "is inventing"],
+                correct: 2,
+                hint: "A completed past invention in a specific year ('in 1876').",
+                explanation: "Specific completed past events use the Past Simple ('invented')."
+            },
+            {
+                id: 41,
+                category: "Past Continuous",
+                question: "We _____ dinner when the doorbell suddenly rang.",
+                options: ["had", "have", "were having", "are having"],
+                correct: 2,
+                hint: "Our meal was underway when the doorbell interrupted us.",
+                explanation: "The Past Continuous ('were having') sets the ongoing scene interrupted by the Past Simple ('rang')."
+            },
+            {
+                id: 42,
+                category: "Present Continuous",
+                question: "Look at that car's speed! He _____ way too fast.",
+                options: ["drives", "drove", "is driving", "will drive"],
+                correct: 2,
+                hint: "The speaker is watching the car speed past right now.",
+                explanation: "Actions observed right at the moment of speaking take the Present Continuous ('is driving')."
+            },
+            {
+                id: 43,
+                category: "Future Simple",
+                question: "Don't worry, I promise I _____ anyone your secret.",
+                options: ["don't tell", "didn't tell", "won't tell", "am not telling"],
+                correct: 2,
+                hint: "Negative form of 'will' used to make a reassuring promise.",
+                explanation: "Negative promises use 'will not' / 'won't' + base verb ('won't tell')."
+            },
+            {
+                id: 44,
+                category: "Present Simple",
+                question: "She _____ to the gym three times a week to stay fit.",
+                options: ["go", "goes", "is going", "went"],
+                correct: 1,
+                hint: "'Three times a week' expresses a regular weekly routine.",
+                explanation: "Regular routines use Present Simple. For third-person singular 'She', 'go' becomes 'goes'."
+            },
+            {
+                id: 45,
+                category: "Past Continuous",
+                question: "While the teacher _____ the lesson, the students were taking notes.",
+                options: ["explained", "explains", "was explaining", "is explaining"],
+                correct: 2,
+                hint: "Both the teacher explaining and the students taking notes happened simultaneously.",
+                explanation: "Parallel ongoing actions in the past connected by 'while' both use Past Continuous ('was explaining')."
+            },
+            {
+                id: 46,
+                category: "Future Simple",
+                question: "She has already bought her plane ticket; she _____ visit Tokyo next month.",
+                options: ["will", "is going to", "visits", "visited"],
+                correct: 1,
+                hint: "She already bought the ticket, showing a prior intention/plan made before speaking.",
+                explanation: "Pre-existing plans and intentions decided before the moment of speaking use 'be going to' ('is going to')."
+            },
+            {
+                id: 47,
+                category: "Present Continuous",
+                question: "Listen! Can you hear what they _____ about?",
+                options: ["talk", "talked", "are talking", "will talk"],
+                correct: 2,
+                hint: "They are speaking right now while we listen.",
+                explanation: "An action occurring right now uses the Present Continuous ('are talking')."
+            },
+            {
+                id: 48,
+                category: "Past Continuous",
+                question: "At midnight last night, most people in the quiet town _____.",
+                options: ["slept", "sleep", "were sleeping", "are sleeping"],
+                correct: 2,
+                hint: "'At midnight last night' pinpoints an exact moment in the past when the action was in progress.",
+                explanation: "To describe what was happening at a specific hour in the past, use Past Continuous ('were sleeping')."
+            },
+            {
+                id: 49,
+                category: "Future Simple",
+                question: "Those bags look heavy! I _____ carry one for you.",
+                options: ["am going to", "will", "carried", "carry"],
+                correct: 1,
+                hint: "An immediate, spontaneous offer to help someone.",
+                explanation: "Spontaneous offers of help use 'will' ('I will carry...')."
+            },
+            {
+                id: 50,
+                category: "Present Simple",
+                question: "Cats _____ in the dark much better than humans can.",
+                options: ["are seeing", "saw", "see", "will see"],
+                correct: 2,
+                hint: "A general biological fact about cats, plus 'see' is a sensory verb.",
+                explanation: "General biological facts and sensory verbs use the Present Simple ('see')."
+            }
+        ];
+
+        // Application State
+        let currentIndex = 0;
+        let userAnswers = new Array(quizQuestions.length).fill(null);
+        let hintsEnabled = false;
+        let viewMode = 'single'; // 'single' | 'all' | 'mistakes'
+        let refDrawerOpen = true;
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNavGrid();
+            renderQuiz();
+            updateStats();
+        });
+
+        // Toggle Grammar Study Guide Section
+        function toggleReferenceDrawer() {
+            const section = document.getElementById('referenceSection');
+            const label = document.getElementById('toggleRefText');
+            refDrawerOpen = !refDrawerOpen;
+            if (refDrawerOpen) {
+                section.classList.remove('hidden');
+                label.textContent = 'Hide Study Guide';
+            } else {
+                section.classList.add('hidden');
+                label.textContent = 'Show Study Guide';
+            }
+        }
+
+        // Switch Tabs in Grammar Reference Section
+        function switchTab(tabName) {
+            // Update tab button styles
+            document.querySelectorAll('.ref-tab').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-brand-900', 'shadow-sm');
+                btn.classList.add('text-brand-100', 'hover:text-white', 'hover:bg-white/10');
+            });
+            const activeBtn = document.getElementById(`tab-${tabName}`);
+            activeBtn.classList.add('bg-white', 'text-brand-900', 'shadow-sm');
+            activeBtn.classList.remove('text-brand-100', 'hover:text-white', 'hover:bg-white/10');
+
+            // Show active content grid
+            document.querySelectorAll('.ref-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('grid');
+            });
+            const activeContent = document.getElementById(`content-${tabName}`);
+            activeContent.classList.remove('hidden');
+            activeContent.classList.add('grid');
+        }
+
+        // Toggle Hints Visibility
+        function toggleHints() {
+            hintsEnabled = !hintsEnabled;
+            const btn = document.getElementById('hintToggleBtn');
+            const label = document.getElementById('hintToggleLabel');
+            if (hintsEnabled) {
+                btn.classList.remove('bg-amber-50', 'text-amber-800', 'border-amber-200');
+                btn.classList.add('bg-amber-500', 'text-white', 'border-amber-600');
+                label.textContent = 'Show Hints: ON';
+            } else {
+                btn.classList.add('bg-amber-50', 'text-amber-800', 'border-amber-200');
+                btn.classList.remove('bg-amber-500', 'text-white', 'border-amber-600');
+                label.textContent = 'Show Hints: OFF';
+            }
+            renderQuiz();
+        }
+
+        // Switch Between One-by-One and View All Modes
+        function setViewMode(mode) {
+            viewMode = mode;
+            const singleBtn = document.getElementById('modeSingleBtn');
+            const allBtn = document.getElementById('modeAllBtn');
+            const navGrid = document.getElementById('questionNavigator');
+            const paginationFooter = document.getElementById('paginationFooter');
+
+            if (mode === 'single') {
+                singleBtn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+                singleBtn.classList.remove('text-slate-600');
+                allBtn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                allBtn.classList.add('text-slate-600');
+                navGrid.classList.remove('hidden');
+                paginationFooter.classList.remove('hidden');
+            } else {
+                allBtn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+                allBtn.classList.remove('text-slate-600');
+                singleBtn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                singleBtn.classList.add('text-slate-600');
+                navGrid.classList.add('hidden');
+                paginationFooter.classList.add('hidden');
+            }
+            renderQuiz();
+        }
+
+        // Render Quick Jump Map (1 to 50)
+        function renderNavGrid() {
+            const navGrid = document.getElementById('navGrid');
+            navGrid.innerHTML = '';
+            quizQuestions.forEach((q, idx) => {
+                const ans = userAnswers[idx];
+                let bgClass = 'bg-slate-100 text-slate-600 hover:bg-slate-200';
+                if (ans !== null) {
+                    bgClass = ans === q.correct
+                        ? 'bg-emerald-500 text-white font-bold'
+                        : 'bg-rose-500 text-white font-bold';
+                }
+                const ringClass = (viewMode === 'single' && idx === currentIndex)
+                    ? 'ring-2 ring-brand-600 ring-offset-1'
+                    : '';
+
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.textContent = idx + 1;
+                dot.title = `Jump to Question ${idx + 1} (${q.category})`;
+                dot.className = `h-7 rounded text-[11px] font-medium transition ${bgClass} ${ringClass}`;
+                dot.onclick = () => {
+                    currentIndex = idx;
+                    renderQuiz();
+                };
+                navGrid.appendChild(dot);
+            });
+        }
+
+        // Get Category Badge Styling
+        function getCategoryBadgeStyle(category) {
+            const map = {
+                "Present Simple": "bg-emerald-100 text-emerald-800 border-emerald-200",
+                "Present Continuous": "bg-teal-100 text-teal-800 border-teal-200",
+                "Past Simple": "bg-amber-100 text-amber-800 border-amber-200",
+                "Past Continuous": "bg-orange-100 text-orange-800 border-orange-200",
+                "Future Simple": "bg-indigo-100 text-indigo-800 border-indigo-200",
+                "Future Continuous": "bg-violet-100 text-violet-800 border-violet-200"
+            };
+            return map[category] || "bg-slate-100 text-slate-800 border-slate-200";
+        }
+
+        // Render Questions based on current mode
+        function renderQuiz() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+
+            let indicesToRender = [];
+            if (viewMode === 'single') {
+                indicesToRender = [currentIndex];
+            } else if (viewMode === 'all') {
+                indicesToRender = quizQuestions.map((_, i) => i);
+            } else if (viewMode === 'mistakes') {
+                indicesToRender = quizQuestions
+                    .map((q, i) => (userAnswers[i] !== null && userAnswers[i] !== q.correct ? i : -1))
+                    .filter(i => i !== -1);
+            }
+
+            if (indicesToRender.length === 0 && viewMode === 'mistakes') {
+                container.innerHTML = `
+                    <div class="bg-white rounded-2xl p-8 text-center border border-slate-200 shadow-sm">
+                        <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-3 text-xl">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">No Mistakes Found!</h3>
+                        <p class="text-sm text-slate-500 mt-1">You haven't answered any questions incorrectly.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            indicesToRender.forEach(idx => {
+                const q = quizQuestions[idx];
+                const selected = userAnswers[idx];
+                const isAnswered = selected !== null;
+                const isCorrect = selected === q.correct;
+
+                // Format sentence blank nicely
+                const formattedQuestion = q.question.replace(
+                    /_____/g,
+                    `<span class="inline-block min-w-[90px] border-b-2 border-brand-500 text-center font-bold text-brand-700 px-2">${
+                        isAnswered ? q.options[selected] : '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+                    }</span>`
+                );
+
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl p-5 sm:p-7 shadow-sm border border-slate-200 fade-in';
+
+                // Option letters
+                const letters = ['A', 'B', 'C', 'D'];
+
+                const optionsHTML = q.options.map((opt, optIdx) => {
+                    let btnClasses = 'border-slate-200 bg-white hover:bg-slate-50 hover:border-brand-300 text-slate-800';
+                    let badgeClasses = 'bg-slate-100 text-slate-600';
+                    let iconHTML = '';
+
+                    if (isAnswered) {
+                        if (optIdx === q.correct) {
+                            btnClasses = 'border-emerald-500 bg-emerald-50/90 text-emerald-950 font-semibold ring-1 ring-emerald-500';
+                            badgeClasses = 'bg-emerald-600 text-white';
+                            iconHTML = '<i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i>';
+                        } else if (optIdx === selected && selected !== q.correct) {
+                            btnClasses = 'border-rose-500 bg-rose-50/90 text-rose-950 font-semibold ring-1 ring-rose-500';
+                            badgeClasses = 'bg-rose-600 text-white';
+                            iconHTML = '<i class="fa-solid fa-circle-xmark text-rose-600 text-lg"></i>';
+                        } else {
+                            btnClasses = 'border-slate-200 bg-slate-50/50 text-slate-400 opacity-75';
+                            badgeClasses = 'bg-slate-200/70 text-slate-400';
+                        }
+                    }
+
+                    return `
+                        <button
+                            type="button"
+                            onclick="selectAnswer(${idx}, ${optIdx})"
+                            class="w-full text-left p-3.5 sm:p-4 rounded-xl border-2 transition-all flex items-center justify-between gap-3 ${btnClasses}"
+                        >
+                            <div class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${badgeClasses}">
+                                    ${letters[optIdx]}
+                                </span>
+                                <span class="text-sm sm:text-base">${opt}</span>
+                            </div>
+                            ${iconHTML}
+                        </button>
+                    `;
+                }).join('');
+
+                // Hint Banner
+                const hintHTML = hintsEnabled ? `
+                    <div class="mt-4 p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm flex items-start gap-2.5">
+                        <i class="fa-solid fa-lightbulb text-amber-500 mt-0.5"></i>
+                        <div><strong>Grammar Hint:</strong> ${q.hint}</div>
+                    </div>
+                ` : '';
+
+                // Instant Feedback & Explanation Box
+                const feedbackHTML = isAnswered ? `
+                    <div class="mt-5 p-4 rounded-xl border ${
+                        isCorrect
+                            ? 'bg-emerald-50/80 border-emerald-200 text-emerald-950'
+                            : 'bg-rose-50/80 border-rose-200 text-rose-950'
+                    } fade-in">
+                        <div class="flex items-center gap-2 font-bold text-sm mb-1">
+                            ${
+                                isCorrect
+                                    ? '<i class="fa-solid fa-circle-check text-emerald-600"></i> <span>Correct! Well done.</span>'
+                                    : `<i class="fa-solid fa-circle-exclamation text-rose-600"></i> <span>Incorrect — Correct Answer: "${q.options[q.correct]}"</span>`
+                            }
+                        </div>
+                        <p class="text-xs sm:text-sm leading-relaxed opacity-90">${q.explanation}</p>
+                    </div>
+                ` : '';
+
+                card.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                        <div class="flex items-center gap-2.5">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 text-white text-xs font-bold">
+                                Q${q.id}
+                            </span>
+                            <span class="px-2.5 py-1 rounded-lg border text-xs font-semibold ${getCategoryBadgeStyle(q.category)}">
+                                ${q.category}
+                            </span>
+                        </div>
+                        ${
+                            isAnswered
+                                ? `<button type="button" onclick="clearSingleAnswer(${idx})" class="text-xs text-slate-400 hover:text-slate-600 underline">Reset Question</button>`
+                                : `<span class="text-xs text-slate-400 font-medium">Choose the best option</span>`
+                        }
+                    </div>
+
+                    <p class="text-base sm:text-lg font-semibold text-slate-900 leading-relaxed mb-5">
+                        ${formattedQuestion}
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        ${optionsHTML}
+                    </div>
+
+                    ${hintHTML}
+                    ${feedbackHTML}
+                `;
+
+                container.appendChild(card);
+            });
+
+            // Update Pagination Controls if in Single Mode
+            if (viewMode === 'single') {
+                document.getElementById('pageIndicator').textContent = `Question ${currentIndex + 1} of ${quizQuestions.length}`;
+                document.getElementById('prevBtn').disabled = currentIndex === 0;
+                const nextBtnText = document.getElementById('nextBtnText');
+                if (currentIndex === quizQuestions.length - 1) {
+                    nextBtnText.textContent = 'View Final Results';
+                } else {
+                    nextBtnText.textContent = 'Next Question';
+                }
+            }
+
+            renderNavGrid();
+        }
+
+        // Handle Option Selection & Auto-Scoring
+        function selectAnswer(questionIdx, optionIdx) {
+            userAnswers[questionIdx] = optionIdx;
+            updateStats();
+            renderQuiz();
+        }
+
+        // Allow resetting an individual question
+        function clearSingleAnswer(questionIdx) {
+            userAnswers[questionIdx] = null;
+            updateStats();
+            renderQuiz();
+        }
+
+        // Pagination Navigation
+        function prevQuestion() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderQuiz();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentIndex < quizQuestions.length - 1) {
+                currentIndex++;
+                renderQuiz();
+            } else {
+                showResultsModal();
+            }
+        }
+
+        // Update Live Scoreboard & Progress Bar
+        function updateStats() {
+            let answered = 0;
+            let correct = 0;
+            let incorrect = 0;
+
+            userAnswers.forEach((ans, idx) => {
+                if (ans !== null) {
+                    answered++;
+                    if (ans === quizQuestions[idx].correct) {
+                        correct++;
+                    } else {
+                        incorrect++;
+                    }
+                }
+            });
+
+            const accuracy = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+            const progressPercent = (answered / quizQuestions.length) * 100;
+
+            document.getElementById('headerScore').textContent = `${correct} / ${quizQuestions.length}`;
+            document.getElementById('answeredCount').textContent = answered;
+            document.getElementById('correctCount').textContent = correct;
+            document.getElementById('incorrectCount').textContent = incorrect;
+            document.getElementById('accuracyPercent').textContent = `${accuracy}%`;
+            document.getElementById('progressBar').style.width = `${progressPercent}%`;
+        }
+
+        // Generate & Show Final Results Summary Screen
+        function showResultsModal() {
+            const quizWorkspace = document.getElementById('quizWorkspace');
+            const resultsSection = document.getElementById('resultsSection');
+
+            let correct = 0;
+            let mistakes = 0;
+
+            // Track category performance
+            const categories = {
+                "Present Simple": { total: 0, correct: 0, color: "bg-emerald-500" },
+                "Present Continuous": { total: 0, correct: 0, color: "bg-teal-500" },
+                "Past Simple": { total: 0, correct: 0, color: "bg-amber-500" },
+                "Past Continuous": { total: 0, correct: 0, color: "bg-orange-500" },
+                "Future Simple": { total: 0, correct: 0, color: "bg-indigo-500" },
+                "Future Continuous": { total: 0, correct: 0, color: "bg-violet-500" }
+            };
+
+            quizQuestions.forEach((q, idx) => {
+                categories[q.category].total++;
+                if (userAnswers[idx] === q.correct) {
+                    correct++;
+                    categories[q.category].correct++;
+                } else if (userAnswers[idx] !== null) {
+                    mistakes++;
+                }
+            });
+
+            const percentage = Math.round((correct / quizQuestions.length) * 100);
+
+            // Determine Grade Badge & Message
+            let gradeTitle = "";
+            let gradeMessage = "";
+            if (percentage >= 90) {
+                gradeTitle = "Grade: A+ — Grammar Virtuoso!";
+                gradeMessage = "Outstanding mastery! You have an exceptional command of English tenses and time markers.";
+            } else if (percentage >= 80) {
+                gradeTitle = "Grade: A — Tense Master!";
+                gradeMessage = "Great work! You clearly understand how to distinguish simple and continuous actions across time.";
+            } else if (percentage >= 70) {
+                gradeTitle = "Grade: B — Solid Foundation";
+                gradeMessage = "Good effort! Review the few tricky distinctions in the Study Guide to push your score even higher.";
+            } else if (percentage >= 50) {
+                gradeTitle = "Grade: C — Developing Skills";
+                gradeMessage = "You're on the right track! Focus on time markers (like 'while', 'yesterday', and 'right now') and try again.";
+            } else {
+                gradeTitle = "Keep Practicing — Review Study Guide";
+                gradeMessage = "Open the Grammar Study Guide above to review the core formulas and examples, then retake the quiz!";
+            }
+
+            document.getElementById('gradeTitle').textContent = gradeTitle;
+            document.getElementById('gradeMessage').textContent = gradeMessage;
+            document.getElementById('finalScoreBig').textContent = correct;
+            document.getElementById('finalPercentPill').textContent = `${percentage}%`;
+            document.getElementById('mistakeCountLabel').textContent = mistakes;
+
+            const reviewBtn = document.getElementById('reviewMistakesBtn');
+            reviewBtn.style.display = mistakes > 0 ? 'inline-flex' : 'none';
+
+            // Populate Category Breakdown Cards
+            const breakdownGrid = document.getElementById('categoryBreakdownGrid');
+            breakdownGrid.innerHTML = '';
+
+            Object.entries(categories).forEach(([catName, data]) => {
+                const catPct = Math.round((data.correct / data.total) * 100);
+                const card = document.createElement('div');
+                card.className = 'p-4 rounded-xl border border-slate-200 bg-slate-50/70 space-y-2';
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-bold text-slate-800">${catName}</span>
+                        <span class="text-xs font-bold text-slate-600">${data.correct} / ${data.total} (${catPct}%)</span>
+                    </div>
+                    <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                        <div class="h-full ${data.color} rounded-full" style="width: ${catPct}%"></div>
+                    </div>
+                `;
+                breakdownGrid.appendChild(card);
+            });
+
+            quizWorkspace.classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Filter view to review only incorrect answers
+        function reviewMistakes() {
+            document.getElementById('resultsSection').classList.add('hidden');
+            document.getElementById('quizWorkspace').classList.remove('hidden');
+            setViewMode('mistakes');
+        }
+
+        // Return from Results Summary back to Quiz
+        function continueQuiz() {
+            document.getElementById('resultsSection').classList.add('hidden');
+            document.getElementById('quizWorkspace').classList.remove('hidden');
+            setViewMode('single');
+        }
+
+        // Reset Entire Quiz
+        function resetQuiz() {
+            userAnswers = new Array(quizQuestions.length).fill(null);
+            currentIndex = 0;
+            updateStats();
+            document.getElementById('resultsSection').classList.add('hidden');
+            document.getElementById('quizWorkspace').classList.remove('hidden');
+            setViewMode('single');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
